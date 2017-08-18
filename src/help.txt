@@ -1,0 +1,119 @@
+# DO NOT CHANGE THE FOLLOWING LINE
+version=1.0.0
+
+=============================
+========= CONTENTS ==========
+=============================
+
+I.    PLUGIN DESCRIPTION
+II.   COMMANDS
+III.  REMARKS
+IV.   PERMISSIONS
+V.    FEEDBACK
+
+
+=============================
+=== I. PLUGIN DESCRIPTION ===
+=============================
+ 
+    Target spigot version: 1.11.2
+    Tested spigot versions: 1.11, 1.11.1, 1.11.2, 1.12, 1.12.1
+
+    This plugin allows you to control running of time at your server.
+For this the plugin can work in different modes. They are:
+       0 - disabled: 
+             Plugin is disabled.
+       1 - mode-static: 
+             Sets static time.
+       2 - mode-full: 
+             Full daylight cycle, but you can set speed of running time 
+             in day and night separately.
+       3 - mode-parted: 
+             Time runs in interval, defined by two points: 
+             start-time and finish-time.
+       4 - mode-chaos: 
+             Time changes it's direction randomly.
+    Each mode has it's own additional settings, that you can set
+in "config.yml" (recommended) or by server commands.
+
+=============================
+======= II. COMMANDS ========
+=============================
+
+    (Warning: Remember that when you want to type server command in game chat,
+you should type symbol "/" before command and your player should have
+necessary permissions (or just be the owner). When you want to type server 
+command in server console, you shouldn't type symbol "/" before command.)
+
+    All commands should begin from the word "timereg". Also instead of "timeger"
+you can use "tmrg", "timeregulator", "regtime", "rgtm". It's all the same.
+
+    Commands list:
+    /timereg - little welcome message with "usage" description.
+    /timereg info - more info about the plugin
+    /timereg setmode <mode> - sets new mode
+    /timereg disable - sets the mode to 0
+    /timereg reload - reloads plugin. Use it, when u changed 
+                      something in "config.yml" and want to make plugin
+                      work with these new settings.
+    /timereg setdaylightcycle <(1|true|yes)|(0|false|no)> - sets gamerule
+                      named "daylightcycle" to true or false. You can do it
+                      only if current mode is 0.
+    /timereg settime <time> - sets new time. Works only if mode = 0 or 1.
+    /timereg gettime - returns current time
+    /timereg getmode - returns current mode
+    /timereg setparam <path> <value> - (Do not recommend) sets new value
+                        to certain parameter in "config.yml" and reloads
+                        the plugin in the same moment. (Instead of this
+                        recommend to change "config.yml" and reload plugin
+                        yourself)
+
+
+=============================
+======= III. REMARKS ========
+=============================
+
+    1) Please, don't use "/time <set|add|query>" commands, when plugin
+       is active (when mode is not 0), because this command or won't work
+       or will break normal working of plugin (shouldn't happen).
+    2) Please, don't use "/gamerule doDaylightCycle <value>" commands, when plugin
+       is active (when mode is not 0), because this command 
+       will break normal working of plugin.
+    3) Inverse direction of running of time can cause changing of moon phases 
+       every tick.
+    4) When you activate this plugin, it will set gamerule "daylightcycle"
+       to "false". When you deactivate this plugin, it won't set 
+       gamerule "daylightcycle" back to "true". So, if you want to reset 
+       normal dayligth cycle, use: "/timereg setdatlightcycle true" (if you 
+       have this plugin) or "/gamerule doDaylightCycle true"
+    5) Highly recommend to use this plugin at servers with only ONE world.
+       
+
+
+=============================
+====== IV. PERMISSIONS ======
+=============================
+
+timereg.timereg - allows to use all available commands for this plugin
+
+
+=============================
+======== V. FEEDBACK ========
+=============================
+
+Author: akropon
+Email: akropon@mail.ru
+
+    If you notice any lags, bugs or crashes, which were caused by this plugin,
+please, write to me on mail with description of the problem.
+Also, if possible, attach server logs (it will help me a lot!), write
+spigot version and list of plugins you used.
+
+    U can write me in:
+    - russian (the best way)
+    - english (normal way)
+    - spanish (as the last resort)
+
+    (Remark: I know about the bug with moon phases when time is running 
+in the opposite direction, so there is no need to write me about it.
+Probably I'll fix it later).

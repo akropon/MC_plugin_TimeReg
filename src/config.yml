@@ -1,0 +1,97 @@
+# The plugin can work in different modes. They are:
+#  0 - (disabled) plugin is disabled
+#  1 - (mode-static) static time
+#  2 - (mode-full) full-daylight-cycle
+#  3 - (mode-parted) parted-daylight-cycle
+#  4 - (mode-chaos) chaos
+# Set the mode here. Value must be in {0,1,2,3,4}
+mode: 2
+    
+    
+# Mode-static:  sets static time.
+# (DON'T CHANGE THIS LINE)
+mode-static:
+    
+    # value of time
+    time: 12000
+       
+       
+# Mode-full:  full daylight cycle, but you can set speed of running time 
+#    in day and night separately
+# (DON'T CHANGE THIS LINE) 
+mode-full:
+    
+    # Speed of running time while it's day. Value must be in (0.0, 1000.0)
+    # 1.0 - normal speed, less than 1.0 - faster speed, bigger than 1.0 - slower speed
+    day-time-speed: 20.0
+    
+    # Speed of running time while it's night. Value must be in (0.0, 1000.0)
+    # 1.0 - normal speed, less than 1.0 - faster speed, bigger than 1.0 - slower speed
+    night-time-speed: 50.0
+    
+    # Set to "true", if u want to make sun and moon move 
+    #   in the opposite direction. (causes changing of moon phase every tick)
+    inverse-time-direction: false
+       
+       
+# Mode-parted:  time runs in interval, defined by two points: 
+#     start-time and finish-time.
+# (DON'T CHANGE THIS LINE) 
+mode-parted:
+    
+    # start-time (value in [0,23999] )
+    start-time: 11500
+    
+    # finish-time (value in [0,23999] )
+    finish-time: 12500
+    
+    # Speed of running time. Value must be in (0.0, 1000.0)
+    # 1.0 - normal speed, less than 1.0 - faster speed, bigger than 1.0 - slower speed
+    time-speed: 10.0
+    
+    # Set to "true", if u want to make sun and moon move 
+    #   in the opposite direction. (causes changing of moon phase every tick)
+    inverse-time-direction: false
+    
+    # When time reaches it's finish point, it's should return to start point
+    #     before it can begin new cycle.
+    # There are two way to do that:
+    #   1) "reset" - time changes from finish position to start position in one moment
+    #   2) "inverse moving" - time just changes direction and runs
+    #          with the same speed from finish point to start point, then changes
+    #          direction again and so on...
+    # Set "true" in this field to enable the first way of returning (reset)
+    # Set "false" - the second way (inverse moving)
+    allow-inverse-time-return: true
+    
+    
+# Mode-chaos:  time changes its direction randomly.
+# (DON'T CHANGE THIS LINE)  
+mode-chaos:
+    
+    # Speed of running time. Value must be in (0.0, 1000.0)
+    # 1.0 - normal speed, less than 1.0 - faster speed, bigger than 1.0 - slower speed
+    time-speed: 30.0
+    
+    # Probability of turning the direction of time from back to forward.
+    # Value must be in (0.0, 1.0). Reccomended value: 0.02 and less.
+    probability-turn-to-forward: 0.02
+    
+    # Probability of turning the direction of time from back to forward.
+    # Value must be in (0.0, 1.0). Reccomended value: 0.02 and less.
+    probability-turn-to-back: 0.01
+    
+    # Set "false" if u want to make time change it's direction in one moment
+    # Set "true" if u want to make time change it's direction smoothly
+    smooth-inverting: true
+    
+    # Sets, how fast time will change it's direction if smooth-inverting is "true".
+    # Value must be in (0.0, 1.0). 
+    # The bigger value is, the faster is changing of the direction.
+    # The smaller the value, the slower the direction changes.
+    # Highly reccomend to set this value bigger than 
+    #     probability-turn-to-forward and probability-turn-to-back.
+    smooth-step: 0.05
+    
+config-version: '1.0.0'
+    

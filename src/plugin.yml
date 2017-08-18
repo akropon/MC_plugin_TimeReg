@@ -1,0 +1,23 @@
+name: TimeReg
+main: ru.akropon.daytimeregulator.MainPluginClass
+version: 1.0.0
+author: "akropon (RU) email: akropon@mail.ru"
+description: |
+    "This plugin allows you to control time."
+    " With it you can stop the time, make it faster or slower, make days very long and nights very short,"
+    " make time tun in custom interval, change its direction and even break it at all."
+commands:
+   timereg:
+      description: "Type this command to see more info."
+      aliases: [tmrg, timeregulator, regtime, rgtm]
+      usage: "/timereg <setMode|getMode|reload|disable|setTime|getTime|setDaylightCycle> ..."
+      permission: timereg.timereg
+      permission-message: You don't have permissions
+permissions:
+   timereg.*:
+     description: "Gives access to all Timereg commands"
+     children:
+       timereg.timereg: true
+   timereg.timereg:
+     description: "Gives access to all Timereg commands"
+     default: false
